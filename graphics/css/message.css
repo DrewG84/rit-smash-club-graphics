@@ -1,0 +1,231 @@
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper{
+	display: block;
+	font-family: x-heighting, sans-serif;
+	width: 1920px;
+	height: 1080px;
+	font-size: 18px;
+	position: relative;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+
+    left: 0px;
+    top: 0px;
+
+    animation: constantMovement 5s linear infinite;
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
+    
+}
+
+.dots {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+
+    left: 0px;
+    top: 0px;
+
+    --dot-size: 2.5px;
+
+    background-image: radial-gradient(#000000 var(--dot-size), transparent var(--dot-size)), radial-gradient(#000000 var(--dot-size), transparent var(--dot-size));
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+
+    clip-path: polygon(0 100%, 0 0, 100% 0, 100% 16%, 0 36%, 0 84%, 100% 64%, 100% 100%);
+
+}
+
+@keyframes constantMovement {
+    0%{
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: 36px -36px;
+    }
+}
+
+.before::before {
+    content: "` ` ` ";
+    font-size: 20px;
+    top: 5px;
+}
+.after::after {
+    content: " ` ` `";
+    font-size: 20px;
+}
+
+.side-bar {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    --width: 320px;
+    width: var(--width);
+    height: 1080px;
+    top: 0;
+    left: 50px;
+}
+
+.side-bar>img {
+    width: var(--width);
+    height: auto;
+}
+
+.tourney-name {
+    font-family: karnak, sans-serif;
+    font-size: 295px;
+    text-align: center;
+    width: var(--width);
+    height: 300px;
+    margin-top: -80px;
+}
+
+.stars {
+    font-size: 64px;
+    letter-spacing: 4px;
+    margin-top: -7px;
+    margin-bottom: 5px;
+}
+
+.page-border {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 1920px;
+    height: 1080px;
+
+    left: 0px;
+    top: 0px;
+}
+
+.scroll-container {
+    height: 42px;
+
+    background-color: var(--black);
+
+    /* padding-top: 10px; */
+    overflow: hidden;
+    width: 100%;
+  
+    --gap: 20px;
+    display: flex;
+    gap: var(--gap);
+  }
+  
+  .scroll-container>.scroller {
+    font-family: x-heighting, sans-serif;
+    color: var(--white);
+    font-size: 20px;
+
+    min-width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  .left {
+    animation: scroll 20s linear infinite !important;
+    animation-direction: reverse !important;
+}
+  
+  .right {
+    animation: scroll 20s linear infinite !important;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  .bracket-location {
+    margin-right: 80px;
+    align-self: flex-end;
+    font-size: 150px;
+    width: 700px;
+    height: auto;
+    text-align: right;
+    line-height: 120px;
+    white-space:pre-wrap;
+  }
+
+  .bracket-location::before {
+    content: '```\A';
+    font-size: 160px;
+  }
+
+.middle {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+  .event-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center !important;
+    align-items: center !important;
+    align-self: flex-end;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 700px;
+    margin-left: 0;
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  .event-list>div {
+    color: var(--white);
+    font-size: 30px;
+    /* margin: 15px; */
+  }
+
+  .event-list>div::before, .event-list>div::after {
+    font-size: 32px;
+  }
+
+  hr {
+    color: var(--white);
+    width: 600px;
+    border: 4px solid;
+    margin: 20px;
+  }
+
+  .start-time {
+    font-family: karnak, sans-serif;
+    font-size: 100px;
+    line-height: 60px;
+  }
+
+  .schedule-title {
+    font-size: 100px !important;
+  }
+  .times-list {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+  }

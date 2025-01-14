@@ -1,0 +1,387 @@
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.wrapper{
+	display: block;
+	font-family: x-heighting, sans-serif;
+	width: 1920px;
+	height: 1080px;
+	font-size: 18px;
+	position: relative;
+    overflow: hidden;
+}
+
+.top-bar {
+	position: absolute;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	left: 480px;
+	top: 0px;
+	width: 1000px;
+	height: auto;
+
+	animation: down 1s ease-in-out 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes down {
+    0%   {top:-150px}
+    100%   {top:0px}
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.before::before {
+    content: "` ` ` ";
+    font-size: 20px;
+    top: 5px;
+}
+.after::after {
+    content: " ` ` `";
+    font-size: 20px;
+}
+
+.chyron-container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	left: 0;
+	top: 50px;
+	width: 1000px;
+	height: 80px;
+
+   
+
+    animation: constantMovement 5s linear infinite;
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
+    
+}
+
+@keyframes constantMovement {
+    0%{
+        background-position: -10px 0px;
+    }
+    100% {
+        background-position: 36px -36px;
+    }
+}
+
+.player1-box {
+    display: flex;
+    flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+    gap: 25px;
+    
+    height: 80px;
+    width: 440px;
+}
+
+.player2-box {
+    display: flex;
+    flex-flow: row nowrap;
+	justify-content: flex-end;
+	align-items: center;
+
+    gap: 25px;
+    
+    height: 80px;
+    width: 440px;
+}
+
+.score{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+
+	width: 80px;
+	height: 80px;
+
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 56px;
+}
+
+.player-box {
+    display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+
+    width: 320px;
+	height: 80px;
+}
+
+.info-box {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+
+	width: auto;
+	height: 60px;
+
+    margin-top: -10px;
+}
+
+.player-1 {
+    align-items: flex-start;
+}
+
+.player-2 {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.name {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+
+}
+
+.prefix {
+    color: var(--black);
+    font-size: 34px;
+    
+
+    font-family: acumin, sans-serif;
+
+    height: 26px;
+    width: auto;
+}
+
+.tag {
+display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+    color: var(--black);
+    font-size: 32px;
+
+    height: 32px;
+    width: 280px;
+
+    margin-top: 4px;
+}
+
+.player-2-name {
+    justify-content: flex-end !important;
+    gap: 0 !important;
+}
+
+.pronouns {
+    color: var(--black);
+    font-size: 16px;
+
+    height: 16px;
+    width: 320px;
+    margin-top: -5px;
+}
+
+.versus {
+    display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+    align-items: center;
+
+    width: 100px;
+    height: 80px;
+
+    
+    background-color: var(--black);
+    transform: skew(10deg);
+}
+
+.versus-bar {
+    width: 80px;
+    height: 5px;
+
+    margin: 5px;
+    background-color: var(--white);
+}
+
+.versus-text {
+    color: var(--white);
+    font-size: 32px;
+    margin-left: 5px;
+    transform: skew(-10deg);
+}
+
+.scroll-container {
+    height: 20px;
+    /* padding-top: 10px; */
+    overflow: hidden;
+    width: 100%;
+  
+    --gap: 20px;
+    display: flex;
+    gap: var(--gap);
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  
+  .scroll-container>.scroller {
+    min-width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: var(--gap);
+    
+  }
+
+  .left {
+    animation: scroll 20s linear infinite !important;
+    animation-direction: reverse !important;
+}
+  
+  .right {
+    animation: scroll-right 20s linear infinite !important;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes scroll-right {
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  .top-corner {
+    position: absolute;
+
+    top: -120px;
+    left: 0;
+    animation: corner-down 1s ease-in-out 1s !important;
+    animation-fill-mode: both !important;
+}
+
+@keyframes corner-down {
+    0%   {top:-160px}
+    100%   {top:0px}
+}
+
+.bottom-corner {
+    position: absolute;
+
+    /* bottom: 160px; */
+    left: 0;
+    animation: corner-up 1s ease-in-out 1s !important;
+    animation-fill-mode: both !important;
+}
+
+@keyframes corner-up {
+    0%   {top: 160px}
+    100%   {top:0px}
+}
+
+
+.location-container {
+    position: absolute;
+    top: 1000px;
+    width: 97%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    
+    height: 24px;
+
+    animation: up 1s ease-in-out 2.5s !important;
+    animation-fill-mode: both !important;
+}
+
+.bracket-location {
+    font-size: 20px;
+    color: var(--white);
+    text-align: center;
+    background-color: var(--black);
+    padding: 10px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    
+   
+}
+
+@keyframes up {
+    0%   {top: 1090px}
+    100%   {top:1000px}
+}
+
+.top-tri {
+    position: absolute;
+    top: 0px;
+    left: -0px;
+
+    width: 420px;
+    height: 120px;
+   
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+
+    animation: constantMovement 5s linear infinite;
+
+
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
+    
+}
+
+.bottom-tri {
+    position: absolute;
+    top: calc(1080px - 120px);
+    left: calc(1920px - 420px);
+
+    width: 420px;
+    height: 120px;
+   
+    clip-path: polygon(100% 100%, 100% 0, 0 100%);
+
+
+    animation: constantMovement 5s linear infinite;
+
+
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
+    
+}
+
+.top-corner>img, .bottom-corner>img {
+    position: absolute;
+}
+
+

@@ -1,0 +1,38 @@
+:root {
+    /* please don't touch these unless you know what you're doing */
+	--orange: #F7931E;
+        --dark-orange: #f57c00;
+        --black: #000000;
+        --white: #ffffff;
+}
+
+
+/* you can switch between tpg and ct by changing these values. logos, links, schedules, etc should all update */
+.tpg {
+    /* setting a value to "inline" causes it to display, 
+    setting it to "none" hides it */
+    display: inline !important;
+}
+.ct {
+    /* setting a value to "inline" causes it to display, 
+    setting it to "none" hides it */
+    display: none !important;
+}
+
+
+
+/* don't touch these please */
+@font-face {
+    font-family: x-heighting;
+    src: url("../font/X-Heighting-RIT.otf");
+}
+
+@font-face {
+    font-family: karnak;
+    src: url("../font/karnakpro-condensedblack.ttf");
+}
+
+@font-face {
+    font-family: acumin;
+    src: url("../font/acumin-pro-extra-condensed-light-italic.otf");
+}

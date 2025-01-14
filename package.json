@@ -1,0 +1,52 @@
+{
+  "name": "rit-smash",
+  "version": "1.0.0",
+  "description": "RIT Smash Club Tournament Layouts",
+  "homepage": "https://www.drewgenel.com",
+  "author": "swc19",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "html-to-image": "^0.1.1"
+  },
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "bundleDependencies": {},
+    "graphics": [
+      {
+        "file": "layout.html",
+        "width": 1920,
+        "height": 1080
+      },
+	  {
+        "file": "break.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "open-break.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "message.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "melee.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "salty-suite.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "thumbnail.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  }
+}
