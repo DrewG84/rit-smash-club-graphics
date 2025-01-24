@@ -158,49 +158,48 @@ $(() => {
 			$('.p1port2').css("color", "var(--white)");
 			$('.p1port3').css("color", "var(--white)");
 			$('.p1port4').css("color", "var(--white)");
-		// 	if (typeof setData.player1pronouns.length != undefined) {
-		// 	switch (setData.player1pronouns[setData.player1pronouns.length - 1]) {
-		// 		case "1":
-		// 			$('.p1port1').css("color", "var(--orange)");
-		// 			player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
-		// 		break;
-		// 		case "2":
-		// 			$('.p1port2').css("color", "var(--orange)");
-		// 			player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
-		// 		break;
-		// 		case "3":
-		// 			$('.p1port3').css("color", "var(--orange)");
-		// 			player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
-		// 		break;
-		// 		case "4":
-		// 			$('.p1port4').css("color", "var(--orange)");
-		// 			player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
-		// 		break;
-		// 	}
-		// }
+			
+			switch (setData.player1pronouns[setData.player1pronouns.length - 1]) {
+				case "1":
+					$('.p1port1').css("color", "var(--orange)");
+					player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
+				break;
+				case "2":
+					$('.p1port2').css("color", "var(--orange)");
+					player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
+				break;
+				case "3":
+					$('.p1port3').css("color", "var(--orange)");
+					player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
+				break;
+				case "4":
+					$('.p1port4').css("color", "var(--orange)");
+					player1pronouns.text(setData.player1pronouns.substring(0, setData.player1pronouns.length - 1));
+				break;
+			}
 
 			$('.p2port1').css("color", "var(--white)");
 			$('.p2port2').css("color", "var(--white)");
 			$('.p2port3').css("color", "var(--white)");
 			$('.p2port4').css("color", "var(--white)");
-			// switch (4) {
-				// case "1":
-				// 	$('.p2port1').css("color", "var(--orange)");
-				// 	player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
-				// break;
-				// case "2":
-				// 	$('.p2port2').css("color", "var(--orange)");
-				// 	player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
-				// break;
-				// case "3":
-				// 	$('.p2port3').css("color", "var(--orange)");
-				// 	player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
-				// break;
-				// case "4":
-				// 	$('.p2port4').css("color", "var(--orange)");
-				// 	player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
-				// break;
-			// }
+			switch (setData.player2pronouns[setData.player2pronouns.length - 1]) {
+				case "1":
+					$('.p2port1').css("color", "var(--orange)");
+					player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
+				break;
+				case "2":
+					$('.p2port2').css("color", "var(--orange)");
+					player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
+				break;
+				case "3":
+					$('.p2port3').css("color", "var(--orange)");
+					player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
+				break;
+				case "4":
+					$('.p2port4').css("color", "var(--orange)");
+					player2pronouns.text(setData.player2pronouns.substring(0, setData.player2pronouns.length - 1));
+				break;
+			}
 
 			if (document.title === "RIT Melee Layout") {
 				toFix = ['.player1-tag', '.player2-tag', '.player1-score', '.player2-score', '.tourney-name']

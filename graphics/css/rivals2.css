@@ -2,6 +2,7 @@ body {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+   
 }
 .wrapper{
 	display: block;
@@ -20,7 +21,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 
-	left: 480px;
+	left: 460px;
 	top: 0px;
 	width: 1000px;
 	height: auto;
@@ -60,16 +61,12 @@ body {
 
 	left: 0;
 	top: 50px;
-	width: 1000px;
+	width: 1860px;
 	height: 80px;
 
    
 
-    animation: constantMovement 5s linear infinite;
-
-    background-color: var(--orange);
-    background-size: 18px 18px;
-    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
+   
     
 }
 
@@ -92,6 +89,12 @@ body {
     
     height: 80px;
     width: 440px;
+    
+    animation: constantMovement 5s linear infinite;
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
 }
 
 .player2-box {
@@ -104,6 +107,12 @@ body {
     
     height: 80px;
     width: 440px;
+
+    animation: constantMovement 5s linear infinite;
+
+    background-color: var(--orange);
+    background-size: 18px 18px;
+    background-image: repeating-linear-gradient(45deg,  var(--dark-orange) 0, var(--dark-orange) 1.8px, var(--orange) 0, var(--orange) 50%);
 }
 
 .score{
@@ -290,8 +299,8 @@ body {
 
 .location-container {
     position: absolute;
-    top: 1000px;
-    width: 97%;
+    top: 200px;
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -300,8 +309,13 @@ body {
     
     height: 24px;
 
-    animation: up 1s ease-in-out 2.5s !important;
+    animation: down-location 1s ease-in-out 2.5s !important;
     animation-fill-mode: both !important;
+}
+
+@keyframes down-location {
+    0%   {top:-150px}
+    100%   {top:140px}
 }
 
 .bracket-location {

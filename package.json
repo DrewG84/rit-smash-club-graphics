@@ -9,7 +9,7 @@
     "html-to-image": "^0.1.1"
   },
   "nodecg": {
-    "compatibleRange": "^2.0.0",
+    "compatibleRange": "^1.9.0",
     "bundleDependencies": {},
     "graphics": [
       {
@@ -34,6 +34,11 @@
       },
       {
         "file": "melee.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "rivals2.html",
         "width": 1920,
         "height": 1080
       },

@@ -236,7 +236,8 @@ body {
 	justify-content: space-around;
 
 	width: auto;
-	height: 60px;
+	height: auto;
+    /* gap: 5px; */
 
     margin-top: -10px;
 }
@@ -254,35 +255,16 @@ body {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    gap: 8px;
-    height: 34px;
+    /* gap: 8px; */
+    height: 40px;
+    width: 300px;
+    font-size: 32px;
+    color: var(--black);
 
 }
 
 .prefix {
-    color: var(--black);
-    font-size: 34px;
-    
-
     font-family: acumin, sans-serif;
-
-    height: 26px;
-    width: auto;
-}
-
-.tag {
-display: flex;
-	flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-items: center;
-
-    color: var(--black);
-    font-size: 32px;
-
-    height: 32px;
-    width: 280px;
-
-    margin-top: 4px;
 }
 
 .player-2-name {
@@ -292,11 +274,11 @@ display: flex;
 
 .pronouns {
     color: var(--black);
-    font-size: 16px;
+    /* font-size: 16px; */
 
     height: 16px;
     width: 320px;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .versus {

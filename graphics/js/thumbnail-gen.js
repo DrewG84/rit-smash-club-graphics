@@ -11,12 +11,36 @@ function FixSize(selector){
 
 		var text_org = $(selector + ":visible").html();
 
-		var text_update = '<span style="white-space:nowrap;">' + text_org + '</span>';
+		if (selector === '.player1-tag') {
+			var split_text = text_org.split("| ");
+			var tag = split_text.slice(1, split_text.length).join("");
+			// console.log(split_text[0]);
+			if ((typeof tag !== 'undefined')  && (tag !== "")) {
+				var text_update = '<span style="white-space:nowrap;"><span class="prefix">' + split_text[0] + '</span><span class="tag">' + tag + '</span>';
+			
 
-		
+			
+			} else {
+				var text_update = '<span style="white-space:nowrap;"><span style="color:#494578">' + split_text[0] + '</span>';
+
+				
+			}
+			} else if (selector === '.player2-tag') {
+			var split_text = text_org.split("| ");
+			var tag = split_text.slice(1, split_text.length).join("");
+			
+			if ((typeof tag !== 'undefined')  && (tag !== "")) {
+				var text_update = '<span style="white-space:nowrap;"><span class="prefix">' + split_text[0] + '</span><span class="tag">' + tag + '</span>';
+			} else {
+				var text_update = '<span style="white-space:nowrap;"><span style="color:#494578">' + split_text[0] + '</span>';
+			}
+		} else {
+			var text_update = '<span style="white-space:nowrap;">' + text_org + '</span>';
+		}
 
 		
 		$(selector + ":visible").html(text_update);
+	
 
 
 		var childWidth = $(selector + ":visible").children().width();
@@ -28,11 +52,13 @@ function FixSize(selector){
 			$(selector).css("font-size", fontSize -= 1);
 		}
 
+		if (selector === '.bracket-location') {
+			$('.bracket-location' + ' span').css("top", 300 - $(".bracket-location" + " span").height());
+		}
 
-		$('.game-number').css("left", $(".bracket-location").width() + 50);
-
-
-		// console.log(fontSize)
+		
+			
+		
 	}, 500);
 }
 function takeScreen(){

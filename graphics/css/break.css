@@ -267,58 +267,40 @@ height: 80px;
 }
 
 .info-box {
-display: flex;
-flex-flow: column nowrap;
-justify-content: space-around;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
 
-width: auto;
-height: 60px;
+	width: auto;
+	height: auto;
+    /* gap: 5px; */
 
-  margin-top: -10px;
+    margin-top: -10px;
 }
 
 .player-1 {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 
 .player-2 {
-  align-items: flex-end;
-  text-align: right;
+    align-items: flex-end;
+    text-align: right;
 }
 
 .name {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  gap: 8px;
-  height: 34px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    /* gap: 8px; */
+    height: 40px;
+    width: 300px;
+    font-size: 32px;
+    color: var(--black);
 
 }
 
 .prefix {
-  color: var(--black);
-  font-size: 34px;
-  
-
-  font-family: acumin, sans-serif;
-
-  height: 26px;
-  width: auto;
-}
-
-.tag {
-display: flex;
-flex-flow: row nowrap;
-justify-content: flex-start;
-align-items: center;
-
-  color: var(--black);
-  font-size: 32px;
-
-  height: 32px;
-  width: 280px;
-
-  margin-top: 4px;
+    font-family: acumin, sans-serif;
 }
 
 .player-2-name {
@@ -327,12 +309,12 @@ align-items: center;
 }
 
 .pronouns {
-  color: var(--black);
-  font-size: 16px;
+    color: var(--black);
+    /* font-size: 16px; */
 
-  height: 16px;
-  width: 320px;
-  margin-top: -5px;
+    height: 16px;
+    width: 320px;
+    margin-top: -10px;
 }
 
 .versus {
