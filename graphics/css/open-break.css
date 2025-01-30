@@ -276,6 +276,7 @@ body {
     color: var(--black);
     /* font-size: 16px; */
 
+    font-size: 18px;
     height: 16px;
     width: 320px;
     margin-top: -10px;
@@ -340,7 +341,21 @@ body {
     flex-flow: column nowrap;
     justify-content: space-around;
     height: 45px;
-    margin-top: -5px;
+    font-size: 32px;
+    width: 380px;
+    margin-right: 20px;
+    /* margin-top: -5px; */
+    color: var(--white);
+}
+
+.com-symbol {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    height: 45px;
+    font-size: 32px;
+    /* margin-top: -5px; */
+    color: var(--white);
 }
 
 .com-box {
@@ -363,8 +378,8 @@ body {
     background-color: var(--white);
 }
 
-.com-text {
-    color: var(--white);
+.commentator-1,.commentator-2 {
+    color: var(--black);
     font-size: 32px;
     margin-left: 2px;
 }

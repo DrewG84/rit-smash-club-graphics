@@ -11,12 +11,12 @@
 .tpg {
     /* setting a value to "inline" causes it to display, 
     setting it to "none" hides it */
-    display: inline !important;
+    display: none !important;
 }
 .ct {
     /* setting a value to "inline" causes it to display, 
     setting it to "none" hides it */
-    display: none !important;
+    display: inline !important;
 }
 
 

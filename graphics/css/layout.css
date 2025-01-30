@@ -178,6 +178,7 @@ body {
     color: var(--black);
     /* font-size: 16px; */
 
+    font-size: 18px;
     height: 16px;
     width: 320px;
     margin-top: -10px;
