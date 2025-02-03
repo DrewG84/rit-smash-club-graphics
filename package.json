@@ -51,6 +51,11 @@
         "file": "thumbnail.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "top8-gen.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   }
