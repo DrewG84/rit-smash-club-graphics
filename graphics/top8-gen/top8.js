@@ -1,4 +1,5 @@
 let buffer;
+let canvas, canvasSize;
 
 let textDrawers = [];
 
@@ -16,6 +17,8 @@ let tournamentInfo = {
 };
 
 let generateBt, saveBt;
+
+let wrapperDiv, inputDiv, infoDiv, playerDiv, buttonDiv;
 
 let bodyFt, numberFt, prefixFt;
 
@@ -37,14 +40,33 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(792, 792);
+  
+  canvasSize = windowHeight - 100;
+  canvas = createCanvas(canvasSize, canvasSize);
+  
+  canvas.parent(wrapperDiv);
+  inputDiv.parent(wrapperDiv);
+  
+  
+  
   
   saveBt = createButton("Save Image");
   saveBt.size(300);
   saveBt.mousePressed(saveImage);
   
+  saveBt.parent(buttonDiv);
+  
   buffer = createGraphics(792 * 3, 792 * 3);
   buffer.angleMode(DEGREES);
+
+  charImgArray = [];
+  charPrevArray = [];
+  for (let i = 0; i < 8; i++) {
+    charPrevArray[i] = "random";
+    charImgArray[i] = loadImage("../../nodecg-smashcontrol/dashboard/images/ssbult/top8/Random.png");
+  }
+
+  console.log(charImgArray)
   
 }
 
@@ -194,22 +216,70 @@ function draw() {
     
     
     //photo places
+
+    // load characters
+
+    for (let i = 0; i < charPrevArray.length; i++) {
+      if (charPrevArray[i] != playerDataArray[i].characterInp.selector.value()) {
+          changeImage(i);
+      }
+    }
+
+    // draw photo places
+
     buffer.push();
+    
     buffer.shearY(-2);
     buffer.translate(0, 40);
     
     buffer.fill(255);
     buffer.noStroke();
+
+    // for (let i = 0; i < charImgArray.length; i++) {
+    //   charImgArray[i].filter(GRAY);
+    // }
     
     buffer.rect(366 * 3, 130 * 3, 386 * 3, 125 * 3);
+    buffer.image(charImgArray[0], 366 * 3, 130 * 3);
     
     buffer.rect(182 * 3, 458 * 3, 175 * 3, 57 * 3);
+    buffer.image(charImgArray[1], 182 * 3, 458 * 3, 175 * 3, 57 * 3);
+
     buffer.rect(379 * 3, 458 * 3, 175 * 3, 57 * 3);
+    buffer.image(charImgArray[2], 379 * 3, 458 * 3, 175 * 3, 57 * 3);
+
     buffer.rect(577 * 3, 458 * 3, 175 * 3, 57 * 3);
+    buffer.image(charImgArray[3], 577 * 3, 458 * 3, 175 * 3, 57 * 3);
     
     
     buffer.rect(182 * 3, 617 * 3, 274 * 3, 57 * 3);
-    buffer.rect(478 * 3, 615 * 3, 274 * 3, 57 * 3);
+    
+    buffer.rect(478 * 3, 617 * 3, 274 * 3, 57 * 3);
+
+    if (tournamentInfo.game === "64") {
+      buffer.image(charImgArray[4], 182 * 3, 617 * 3, 175 * 3, 57 * 3);
+      buffer.image(charImgArray[6], 478 * 3, 617 * 3, 175 * 3, 57 * 3);
+
+      buffer.push();
+      buffer.scale(-1, 1)
+      buffer.translate(-(182 + 274) * 3, 617 * 3);
+      buffer.image(charImgArray[5], 0, 0, -175 * 3, 57 * 3);
+      buffer.pop();
+      
+      buffer.push();
+      buffer.scale(-1, 1)
+      buffer.translate(-(478 + 274) * 3, 617 * 3);
+      buffer.image(charImgArray[7], 0, 0, -175 * 3, 57 * 3);
+      buffer.pop();
+      
+    } else {
+      buffer.image(charImgArray[4], 162 * 3, 617 * 3, 175 * 3, 57 * 3);
+      buffer.image(charImgArray[5], 302 * 3, 617 * 3, 175 * 3, 57 * 3);
+
+      buffer.image(charImgArray[6], 458 * 3, 617 * 3, 175 * 3, 57 * 3);
+      buffer.image(charImgArray[7], 598 * 3, 617 * 3, 175 * 3, 57 * 3);
+    }
+
     buffer.pop();
     
     
@@ -260,12 +330,27 @@ function draw() {
     
   }
   
-  image(buffer, 0, 0, 792, 792);
+  image(buffer, 0, 0, canvasSize, canvasSize);
   
 }
 
 
 function handleData() {
+  wrapperDiv = createDiv();
+  wrapperDiv.id("wrapper");
+  inputDiv = createDiv();
+  inputDiv.id("input");
+  infoDiv = createDiv("<h1>Tournament Info</h1>");
+  infoDiv.id("info-input");
+  playerDiv = createDiv();
+  playerDiv.id("players");
+  buttonDiv = createDiv();
+  buttonDiv.id("buttons");
+  buttonDiv.parent(infoDiv);
+  
+  infoDiv.parent(inputDiv);
+  playerDiv.parent(inputDiv);
+  
   characterObj.characters.forEach((element) => characterArray.push(element.name));
   
   tournamentInfo.object = new InfoInput();
@@ -293,32 +378,62 @@ function handleData() {
   
 }
 
+function changeImage(index) {
+  let rawString = playerDataArray[index].characterInp.selector.value();
+          rawString = rawString.replaceAll("-", " ");
+          rawString = rawString.replace(/\w\S*/g, text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
+          rawString = rawString.replaceAll(" ", "");
+
+          let gameString = "ssbult";
+          switch (tournamentInfo.game) {
+            case "ultimate":
+              gameString = "ssbult";
+              break;
+            case "melee":
+              gameString = "ssbm";
+              break;
+            case "64":
+              gameString = "ssb64";
+              break;
+          }
+
+          charPrevArray[index] = playerDataArray[index].characterInp.selector.value();
+          let img = loadImage("../../nodecg-smashcontrol/dashboard/images/" + gameString + "/top8/" + rawString +".png");
+          charImgArray[index] = img;
+}
+
 class InfoInput {
   constructor() {
     this.tourneySelect = createSelect();
     this.tourneySelect.option("The Prowling Grounds");
     this.tourneySelect.option("Crouching Tigers");
     this.tourneySelect.size(300);
-    
+    this.tourneySelect.parent(infoDiv);
     
     this.gameSelect = createSelect();
     this.gameSelect.option("ultimate");
     this.gameSelect.option("melee");
     this.gameSelect.option("64");
     this.gameSelect.size(300);
+    this.gameSelect.parent(infoDiv);
     
     this.gamePrev = tournamentInfo.game;
     
     this.dateInp = createInput("2025-01-31", "date");
     this.dateInp.size(300);
+    this.dateInp.parent(infoDiv);
     
     this.datePrev = tournamentInfo.date;
     
     this.entrantsInp = createInput("50", "number");
     this.entrantsInp.size(300);
+    this.entrantsInp.parent(infoDiv);
     
     this.seriesInp = createInput("101", "number");
     this.seriesInp.size(300);
+    this.seriesInp.parent(infoDiv);
+    
+    console.log(infoDiv);
     
     
   }
@@ -353,9 +468,12 @@ class InfoInput {
     
     
     if (tournamentInfo.game != this.gamePrev) {
+
+
       
       for (let i = 0; i < 8; i++) {
         playerDataArray[i].characterInp.update();
+        changeImage(i);
     }
       
       this.gamePrev = tournamentInfo.game;
@@ -376,6 +494,8 @@ class PlayerInput {
     this.div = createDiv("<h2>Player " + this.place + "</h2>");
     this.div.id("player" + this.place);
     this.div.class("player-data");
+    
+    this.div.parent(playerDiv);
     
     this.prefixInp = createInput("Prefix");
     this.prefixInp.size(300);
@@ -478,7 +598,7 @@ class PlayerTextDrawer {
     buffer.textFont(prefixFt);
     
   
-    buffer.text(prefix, this.x, this.y, this.w, this.h + 10);
+    buffer.text(prefix, this.x, this.y + (this.size / 20), this.w, this.h + 10);
     
     
     buffer.textFont(bodyFt);
