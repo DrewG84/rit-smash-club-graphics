@@ -63,7 +63,8 @@ function setup() {
   charPrevArray = [];
   for (let i = 0; i < 8; i++) {
     charPrevArray[i] = "random";
-    charImgArray[i] = loadImage("../../nodecg-smashcontrol/dashboard/images/ssbult/top8/Random.png");
+    charImgArray[i] = loadImage("top8-gen/renders/ssbult/Random.png");
+    // charImgArray[i] = loadImage("../../nodecg-smashcontrol/dashboard/images/ssbult/top8/Random.png");
   }
 
   console.log(charImgArray)
@@ -398,7 +399,8 @@ function changeImage(index) {
           }
 
           charPrevArray[index] = playerDataArray[index].characterInp.selector.value();
-          let img = loadImage("../../nodecg-smashcontrol/dashboard/images/" + gameString + "/top8/" + rawString +".png");
+          let img = loadImage("top8-gen/renders/" + gameString + "/" + rawString + ".png");
+          // let img = loadImage("../../nodecg-smashcontrol/dashboard/images/" + gameString + "/top8/" + rawString +".png");
           charImgArray[index] = img;
 }
 
