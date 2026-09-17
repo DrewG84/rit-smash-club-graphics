@@ -80,6 +80,7 @@ function draw() {
     //color field
     let bgColor;
     let bigSpacing = "";
+    let bigSize = 450;
     
     switch (tournamentInfo.game) {
         case "ultimate":
@@ -87,10 +88,14 @@ function draw() {
           bigSpacing = " ";
           break;
         case "melee":
+        case "rivals":
           bgColor = "#f37436";
+
           break;
         case "64":
+        case "rivals ii":
           bgColor = "#fcb636";
+
           break;
         default:
           bgColor = "#f79421";
@@ -112,7 +117,7 @@ function draw() {
     
     
     buffer.textFont(bodyFt);
-    buffer.textSize(450);
+    buffer.textSize(bigSize);
     buffer.textAlign(RIGHT, CENTER);
     buffer.noFill();
     buffer.stroke(0);
@@ -257,7 +262,7 @@ function draw() {
     
     buffer.rect(478 * 3, 617 * 3, 274 * 3, 57 * 3);
 
-    if (tournamentInfo.game === "64") {
+    if (tournamentInfo.game === "64" || tournamentInfo.game === "rivals") {
       buffer.image(charImgArray[4], 182 * 3, 617 * 3, 175 * 3, 57 * 3);
       buffer.image(charImgArray[6], 478 * 3, 617 * 3, 175 * 3, 57 * 3);
 
@@ -318,9 +323,11 @@ function draw() {
           buffer.tint(247, 148, 33);
           break;
         case "melee":
+        case "rivals":
           buffer.tint(243, 116, 54);
           break;
         case "64":
+        case "rivals ii":
           buffer.tint(252, 182, 54);
           break;
       }
@@ -396,6 +403,12 @@ function changeImage(index) {
             case "64":
               gameString = "ssb64";
               break;
+            case "rivals":
+              gameString = "roa1";
+              break;
+            case "rivals ii":
+              gameString = "roa2";
+              break;
           }
 
           charPrevArray[index] = playerDataArray[index].characterInp.selector.value();
@@ -416,6 +429,8 @@ class InfoInput {
     this.gameSelect.option("ultimate");
     this.gameSelect.option("melee");
     this.gameSelect.option("64");
+    this.gameSelect.option("rivals");
+    this.gameSelect.option("rivals ii");
     this.gameSelect.size(300);
     this.gameSelect.parent(infoDiv);
     
@@ -535,6 +550,12 @@ class CharacterInput {
           break;
         case "64":
           include = element.s64;
+          break;
+        case "rivals":
+          include = element.roa1;
+          break;
+        case "rivals ii":
+          include = element.roa2;
           break;
         default:
           include = element.ultimate;
