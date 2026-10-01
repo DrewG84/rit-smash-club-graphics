@@ -9,7 +9,7 @@
     "html-to-image": "^0.1.1"
   },
   "nodecg": {
-    "compatibleRange": "^1.9.0",
+    "compatibleRange": "^2.6.0",
     "bundleDependencies": {},
     "graphics": [
       {

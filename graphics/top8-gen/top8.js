@@ -262,7 +262,7 @@ function draw() {
     
     buffer.rect(478 * 3, 617 * 3, 274 * 3, 57 * 3);
 
-    if (tournamentInfo.game === "64" || tournamentInfo.game === "rivals") {
+    if (tournamentInfo.game === "64" || tournamentInfo.game === "rivals" || tournamentInfo.game === "rivals ii") {
       buffer.image(charImgArray[4], 182 * 3, 617 * 3, 175 * 3, 57 * 3);
       buffer.image(charImgArray[6], 478 * 3, 617 * 3, 175 * 3, 57 * 3);
 
